@@ -1,0 +1,230 @@
+/* ------------ page shell ------------ */
+body, html {
+  margin: 0;
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+.AI-support-page {
+  display: flex;
+  height: calc(100vh - 60px); /* subtract NavBar height if NavBar is 60px */
+  background: #f6f7fb;
+}
+
+/* ------------ sidebar ------------ */
+.sidebar {
+  width: 240px;
+  padding: 20px;
+  background: #2b2d42;          /* dark slate */
+  color: #ffffff;
+  box-shadow: 2px 0 6px rgb(0 0 0 / 0.08);
+}
+
+.support-title {
+  margin: 0;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+/* ------------ chat history pane ------------ */
+.chat-history {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 32px 100px;   /* bottom padding for the input bar */
+  overflow-y: auto;
+  background: #ffffff;
+}
+
+/* scrollbar (optional, WebKit only) */
+.chat-history::-webkit-scrollbar {
+  width: 8px;
+}
+.chat-history::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 4px;
+}
+
+/* ------------ chat bubbles ------------ */
+.chat-bubble {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  line-height: 1.45;
+  white-space: pre-wrap; /* keep newlines from AI */
+  word-break: break-word;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.08);
+}
+
+.user-bubble {
+  margin-left: auto;                    /* push to the right */
+  background: #4f7cff;
+  color: #fff;
+}
+
+.ai-bubble {
+  margin-right: auto;                   /* push to the left */
+  background: #f2f3f7;
+  color: #111;
+}
+
+/* optional tail “pointer” using :after */
+.user-bubble::after,
+.ai-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+}
+
+.user-bubble {
+  position: relative;
+}
+.user-bubble::after {
+  right: -6px;
+  border-left: 6px solid #4f7cff;
+  border-top: 6px solid transparent;
+}
+
+.ai-bubble {
+  position: relative;
+}
+.ai-bubble::after {
+  left: -6px;
+  border-right: 6px solid #f2f3f7;
+  border-top: 6px solid transparent;
+}
+
+/* ------------ input bar ------------ */
+.chat-form-container {
+  position: fixed;               /* stays at bottom */
+  left: 240px;                   /* same width as sidebar */
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  padding: 12px 24px;
+  border-top: 1px solid #e1e1e1;
+}
+
+.chat-form {
+  display: flex;
+  width: 100%;
+}
+
+.chat-form input[type="text"] {
+  flex: 1;
+  font-size: 1rem;
+  padding: 12px 16px;
+  border: 1px solid #d0d4e4;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.chat-form input[type="text"]:focus {
+  border-color: #4f7cff;
+}
+
+.chat-form button {
+  margin-left: 12px;
+  padding: 0 20px;
+  border: none;
+  background: #4f7cff;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chat-form button:hover {
+  background: #3a64e0;
+}
+.chat-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* sidebar additions */
+.new-chat-btn {
+  width: 100%;
+  margin: 12px 0 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: var(--color-accent);
+  color: #fff;
+  cursor: pointer;
+}
+.chat-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.chat-list li {
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 6px;
+  background: rgb(255 255 255 / 0.1);
+}
+.chat-list li.active,
+.chat-list li:hover {
+  background: rgb(0 0 0 / 0.08);
+}
+
+/* 1. Make each list item use flex to space title & delete button */
+.chat-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  background: rgb(255 255 255 / 0.1);
+  /* You can keep 'cursor: pointer;' if the entire row is clickable.
+     Alternatively, you can remove it if only the title area should be clickable. */
+  cursor: pointer;
+}
+
+.chat-list li.active,
+.chat-list li:hover {
+  background: rgb(0 0 0 / 0.08);
+}
+
+/* 2. Circular “X” button */
+.delete-chat-btn {
+  /* Basic reset */
+  border: none;
+  outline: none;
+  background: #d9534f;
+
+  /* Circle shape */
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+
+  /* Center the X or ✕ */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Text & size */
+  color: #fff;
+  font-size: 0.9rem; /* adjust to taste */
+  line-height: 1;
+
+  /* Spacing & cursor */
+  margin-left: 8px;  /* gap between title and button */
+  cursor: pointer;
+
+  /* Smooth hover transition */
+  transition: background-color 0.3s ease;
+}
+
+.delete-chat-btn:hover {
+  background-color: #c9302c;
+}

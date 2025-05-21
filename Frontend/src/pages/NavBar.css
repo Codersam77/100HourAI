@@ -1,0 +1,77 @@
+.header-nav {
+  background: var(--primary-gradient);
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 2rem 0rem 0rem; /* top=0, right=2rem, bottom=0, left=0 */
+  height: 80px;  
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.nav-left img {
+  max-width: 225px;
+  margin-right: 1rem;
+}
+
+.nav-logo {
+  /* Bump size + bold to stand out */
+  font-size: 1.7rem;
+  font-weight: bold;
+
+  /* White stands out nicely on the gradient */
+  color: #fff;
+  margin: 0;
+  user-select: none;
+  z-index: 100;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 100;
+}
+
+.nav-btn {
+  /* White background */
+  background: #fff;
+  border: none; /* 1px solid #ecf0f1; */
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #2d3436;  /* dark text for contrast */
+  transition: background 0.2s, transform 0.2s;
+  z-index: 100;
+}
+
+/* Hover: darken the background or add a subtle transform */
+.nav-btn:hover {
+  background: #f0f6ff;
+  transform: scale(1.03);
+}
+
+.important-btn {
+  /* Orange background */
+  background: #e17055;
+  border: none; /*1px solid #ecf0f1;*/
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #ffffff;  /* dark text for contrast */
+  transition: background 0.2s, transform 0.2s;
+  z-index: 100;
+}
+
+/* Hover: darken the background or add a subtle transform */
+.important-btn:hover {
+  background: #d6654d;
+  transform: scale(1.03);
+}
