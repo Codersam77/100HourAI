@@ -53,7 +53,7 @@ This guide shows you how to set up and run **both** the React frontend and the E
 ## 1)  Clone the Repository
 
 ```bash
-git clone https://github.com/CoderSam77/100-Hour-AI.git
+git clone https://github.com/Codersam77/100HourAI.git
 cd "100-Hour-AI"
 
 ```
