@@ -2,7 +2,7 @@
 
 ## Overview
 The **100-Hour AI Goal Coach** is an interactive goal-setting and coaching web application designed to make personal growth engaging, structured, and motivating. It combines habit science, accountability mechanisms, and AI-powered assistance to help users set, track, and achieve their goals.
-
+VIEW DEMO HERE: https://www.loom.com/share/7903b080e4b34a1ebba3a00b21993858
 ---
 
 ## Features
